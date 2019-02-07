@@ -6,7 +6,7 @@ def line_detect(image,treshold_l=120,treshold_h=200):
     h,w = gray_image.shape
     gaussian_image = cv2.GaussianBlur(gray_image,(5,5),0)
     canny_image = cv2.Canny(gaussian_image,treshold_l,treshold_h)
-    ROI = np.array([[(0,h-20),(330,240),(370,240),(w,h-20)]],dtype=np.int32)#niye çift array i
+    ROI = np.array([[(0,h-20),(330,240),(370,240),(w,h-20)]],dtype=np.int32)#
     blank = np.zeros_like(canny_image)
     mask = cv2.fillPoly(blank,ROI,255)
     masked_image = cv2.bitwise_and(canny_image,mask)
@@ -36,7 +36,7 @@ def line_detectp(image,treshold_l=120,treshold_h=200):
 	h,w = gray_image.shape
 	gaussian_image = cv2.GaussianBlur(gray_image,(13,13),0) #orjinali 5,5
 	canny_image = cv2.Canny(gaussian_image,treshold_l,treshold_h)
-	ROI = np.array([[(0,h-20),(w/2-25,h/2+75),(w/2+25,h/2+75),(w,h-20)]],dtype=np.int32)#niye çift array i
+	ROI = np.array([[(0,h-20),(w/2-25,h/2+75),(w/2+25,h/2+75),(w,h-20)]],dtype=np.int32)#array i
 	blank = np.zeros_like(canny_image)
 	mask = cv2.fillPoly(blank,ROI,255)
 	masked_image = cv2.bitwise_and(canny_image,mask)
